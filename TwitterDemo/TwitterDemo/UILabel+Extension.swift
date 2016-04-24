@@ -1,5 +1,5 @@
 //
-//  UILabel.swift
+//  UILabel+Extension.swift
 //  TwitterDemo
 //
 //  Created by 李 on 16/4/24.
@@ -22,7 +22,6 @@ extension UILabel {
         self.textColor = color
         self.textAlignment = alignment
         self.numberOfLines = 0
-
     }
 }
 

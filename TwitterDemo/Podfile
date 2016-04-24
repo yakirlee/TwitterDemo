@@ -6,5 +6,6 @@
 target 'TwitterDemo' do
 pod 'YYKit'
 pod 'SnapKit'
+pod 'SDWebImage'
 end
 

@@ -28,6 +28,7 @@ extension ViewController:UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         return cell
     }
+    
 }
 
 
@@ -36,6 +37,8 @@ extension ViewController {
         navigationItem.title = "Twitter"
         view.addSubview(tableView)
         
+        
+        tableView.rowHeight = 100
         tableView.delegate = self
         tableView.dataSource = self
         
