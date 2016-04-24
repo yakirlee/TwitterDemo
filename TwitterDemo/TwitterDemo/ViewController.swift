@@ -10,16 +10,36 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // MARK: - 私有控件
+    private lazy var tableView = UITableView(frame: UIScreen.mainScreen().bounds, style: .Plain)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        setupUI()
     }
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+extension ViewController:UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
     }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        return cell
+    }
+}
 
 
+extension ViewController {
+    func setupUI() {
+        navigationItem.title = "Twitter"
+        view.addSubview(tableView)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.registerClass(TableViewCell.self, forCellReuseIdentifier: "cell")
+    }
 }
 
