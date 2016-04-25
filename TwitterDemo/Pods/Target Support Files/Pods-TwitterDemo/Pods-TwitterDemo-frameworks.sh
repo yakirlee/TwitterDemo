@@ -84,12 +84,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$CONFIGURATION_BUILD_DIR/SDWebImage/SDWebImage.framework"
-  install_framework "$CONFIGURATION_BUILD_DIR/SnapKit/SnapKit.framework"
-  install_framework "$CONFIGURATION_BUILD_DIR/YYKit/YYKit.framework"
+  install_framework "Pods-TwitterDemo/SDWebImage.framework"
+  install_framework "Pods-TwitterDemo/SnapKit.framework"
+  install_framework "Pods-TwitterDemo/YYKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$CONFIGURATION_BUILD_DIR/SDWebImage/SDWebImage.framework"
-  install_framework "$CONFIGURATION_BUILD_DIR/SnapKit/SnapKit.framework"
-  install_framework "$CONFIGURATION_BUILD_DIR/YYKit/YYKit.framework"
+  install_framework "Pods-TwitterDemo/SDWebImage.framework"
+  install_framework "Pods-TwitterDemo/SnapKit.framework"
+  install_framework "Pods-TwitterDemo/YYKit.framework"
 fi

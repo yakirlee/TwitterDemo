@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        let viewModel = ViewModel()
+        print(viewModel.analysisData())
     }
 }
 
