@@ -10,25 +10,22 @@ import UIKit
 import SnapKit
 
 private let margin = 10.0
-
 class TableViewCell: UITableViewCell {
-    
-    private lazy var nameLabel = UILabel(ykText: "名字")
-    private lazy var accountLabel = UILabel(ykText: "@realName")
-    private lazy var headView = UIImageView(ylImageName: "ic_tweet_attr_summary_default")
+
+    // MARK: - 私有控件
+    private lazy var statusView = CellStatusView(frame: CGRectZero)
+    private lazy var actionView = CellActionsView(frame: CGRectZero)
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
         setupUI()
         
+        actionView.userInteractionEnabled = true
+        
     }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
- 
 }
 
 
@@ -36,34 +33,24 @@ class TableViewCell: UITableViewCell {
 extension TableViewCell {
     func setupUI() {
         
-        // 测试数据
-        headView.ylSetImageWithUrl("http://pbs.twimg.com/profile_images/473830458556297216/40KlXkaR_normal.jpeg", placeholderName: "ic_tweet_attr_summary_default", size: CGSizeMake(50, 40), corner: 4)
+        contentView.addSubview(statusView)
+        contentView.addSubview(actionView)
         
-        
-        
-        contentView.addSubview(headView)
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(accountLabel)
-        
-        headView.snp_makeConstraints { (make) in
-            make.left.equalTo(contentView).offset(margin)
-            make.top.equalTo(contentView).offset(margin)
-            make.size.equalTo(CGSizeMake(30, 30))
+        statusView.snp_makeConstraints { (make) in
+            make.left.equalTo(contentView)
+            make.right.equalTo(contentView)
+            make.top.equalTo(contentView)
         }
         
-        nameLabel.snp_makeConstraints { (make) in
-            make.left.equalTo(headView.snp_right).offset(margin)
-            make.top.equalTo(headView)
+        actionView.snp_makeConstraints { (make) in
+            make.left.equalTo(statusView).offset(8 * margin)
+            make.top.equalTo(statusView.snp_bottom).offset(margin)
+            make.right.equalTo(statusView)
+            make.height.equalTo(44)
+            make.bottom.equalTo(contentView)
         }
-        nameLabel.sizeToFit()
-        
-        accountLabel.snp_makeConstraints { (make) in
-            make.top.equalTo(headView)
-            make.left.equalTo(nameLabel.snp_right)
-        }
-        accountLabel.sizeToFit()
-        
-        
-       
+    
     }
+    
+    
 }
