@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 private let margin = 10.0
 class CellStatusView: UIView {
@@ -28,11 +29,8 @@ class CellStatusView: UIView {
             picView.sd_setImageWithURL(NSURL(string: imageUrl))
             if ((picView.image) != nil) {
                 picView.contentMode = .ScaleAspectFit
-                let picW = bounds.width / 2
-                let picH = 60
                 picView.snp_updateConstraints { (make) in
-                    make.width.equalTo(picW)
-                    make.height.equalTo(picH)
+                   make.size.equalTo(calcSinglePicturesViewSize(imageUrl))
                 }
             }
             
@@ -74,6 +72,29 @@ class CellStatusView: UIView {
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: - 计算单张图片的大小
+extension CellStatusView {
+    private func calcSinglePicturesViewSize(picUrl: String) -> CGSize {
+        
+        guard let image = SDWebImageManager.sharedManager().imageCache.imageFromDiskCacheForKey(picUrl) else {
+            return CGSizeZero
+        }
+        let scale = UIScreen.mainScreen().scale
+        var size = CGSize(width: image.size.width * scale, height: image.size.height * scale)
+        // 针对过窄或者过宽的图片处理
+        let minWidth: CGFloat = 20
+        let maxWidth: CGFloat = 300
+        // 如果宽度过小，将宽度调整到20
+        size.width = size.width < minWidth ? minWidth : size.width
+        if size.width > maxWidth {
+            // 等比例缩放
+            size.width = maxWidth
+            size.height = size.width * image.size.height / image.size.width
+        }
+        return size
     }
 }
 // MARK: - UI设计
