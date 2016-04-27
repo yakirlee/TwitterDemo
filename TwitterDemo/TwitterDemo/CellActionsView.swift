@@ -61,13 +61,17 @@ extension CellActionsView {
                 make.top.equalTo(self.retweetButton).offset(2)
             }
         }
-        
     }
     @objc func selectedFavorite() {
         UIView.animateWithDuration(0.4) {
             let favoriteCount = (self.user?.favourites_count ?? 0) + 1
             self.favoriteLabel.text = "\(favoriteCount)"
             self.favoriteImage.image = UIImage(named: "icn_tweet_action_inline_favorite_Selected")
+            let basicAni = CABasicAnimation.init(keyPath: "transform.scale")
+            basicAni.duration = 0.25
+            basicAni.toValue = 0.5
+            basicAni.fromValue = 1
+            self.favoriteImage.layer.addAnimation(basicAni, forKey: "Animation")
         }
     }
 }

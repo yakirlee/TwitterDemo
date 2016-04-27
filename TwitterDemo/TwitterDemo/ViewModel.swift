@@ -30,7 +30,6 @@ class ViewModel: NSObject {
                 dataList.append(User.modelWithDictionary(dict!)!)
             }
         }
-        
     }
     
 }
