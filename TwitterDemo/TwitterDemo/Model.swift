@@ -9,8 +9,6 @@
 import UIKit
 import YYKit
 
-
-
 class Model: NSObject {
     
     var uid: [String:AnyObject]?
@@ -38,8 +36,6 @@ class User: NSObject {
     var statuses_count: UInt32 = 0
     var favourites_count: UInt32 = 0
     var friends_count: UInt32 = 0
-    
-   
     
     override var description: String {
         let key = ["name", "screen_name", "url", "location", "created_at", "id_str", "profile_image_url","desc",

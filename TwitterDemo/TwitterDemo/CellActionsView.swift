@@ -11,7 +11,6 @@ import UIKit
 private let margin = 50
 class CellActionsView: UIView {
     
-    
     var user: User? {
         didSet {
             retweetLabel.text = "\(user!.listed_count ?? 0)"

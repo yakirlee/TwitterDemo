@@ -23,7 +23,6 @@ class ViewModel: NSObject {
             guard let result = dict["twitter_objects"]!!["users"] else {
                 return
             }
-            
             let name  = (result as! NSDictionary).keyEnumerator().allObjects as? [String]
             for dictName in name! {
                 let dict = (result as! [String:[String: AnyObject]])[dictName]
@@ -31,5 +30,4 @@ class ViewModel: NSObject {
             }
         }
     }
-    
 }
