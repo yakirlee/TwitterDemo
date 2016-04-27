@@ -21,7 +21,7 @@ extension UIImage {
                           backColor: UIColor? = UIColor.whiteColor(),
                           finished: (image:UIImage) -> ()) {
         
-        dispatch_async(dispatch_get_global_queue(0, 0)) { 
+        dispatch_async(dispatch_get_global_queue(0, 0)) {
             UIGraphicsBeginImageContextWithOptions(size, backColor != nil, UIScreen.mainScreen().scale)
             let rect = CGRect(origin: CGPointZero, size: size)
             backColor?.setFill()
@@ -33,10 +33,9 @@ extension UIImage {
             self.drawInRect(rect)
             let result = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
-            dispatch_async(dispatch_get_main_queue(), { 
+            dispatch_async(dispatch_get_main_queue(), {
                 finished(image: result)
             })
         }
-        
     }
-    }
+}
