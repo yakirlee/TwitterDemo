@@ -8,9 +8,21 @@
 
 import UIKit
 
-private let picImageCount = 4
+private let picImageCount = 1
 class PictureView: UIView {
     
+    
+    var picImageUrl:String? {
+        
+        didSet {
+            let imageView =  subviews.first as? UIImageView
+            guard let picImageUrl = picImageUrl else {
+                imageView?.hidden = true
+                return
+            }
+            imageView?.sd_setImageWithURL(NSURL(string: picImageUrl))
+        }
+    }
     //MARK: - 私有控件
     
     override init(frame: CGRect) {
@@ -50,8 +62,6 @@ extension PictureView {
                     make.bottom.equalTo(self)
                 }
             })
-            
-            
         }
     }
 }

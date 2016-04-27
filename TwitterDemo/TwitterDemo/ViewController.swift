@@ -12,13 +12,15 @@ class ViewController: UIViewController {
 
     // MARK: - 私有控件
     private lazy var tableView = UITableView(frame: UIScreen.mainScreen().bounds, style: .Plain)
+    //MARK: - 视图模型
+    private lazy var viewModel = ViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
-        let viewModel = ViewModel()
-        print(viewModel.analysisData())
+        // 加载数据
+        viewModel.analysisData { (dataList) in
+        }
     }
 }
 
@@ -26,10 +28,11 @@ class ViewController: UIViewController {
 extension ViewController:UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel.dataList.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! TableViewCell
+        cell.user = viewModel.dataList[indexPath.row]
         return cell
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
