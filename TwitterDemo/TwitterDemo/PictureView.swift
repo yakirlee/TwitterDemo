@@ -50,8 +50,6 @@ extension PictureView {
                     make.bottom.equalTo(self)
                 }
             })
-            
-            
         }
     }
 }

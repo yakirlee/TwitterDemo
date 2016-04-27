@@ -10,12 +10,33 @@ import UIKit
 
 private let margin = 10.0
 class CellStatusView: UIView {
-
+    
+    var user: User? {
+        didSet {
+            nameLabel.text = user?.name
+            accountLabel.text = user?.screen_name
+            headView.ylSetImageWithUrl(user?.profile_image_url, placeholderName: "ic_tweet_attr_summary_default", size: CGSizeMake(50, 40), corner: 4)
+            // TODO: - 时间处理
+            // timeLabel.text = user?.created_at
+            mainLabel.text = user?.desc
+            
+            /// 设置字体跟背景颜色
+            /*
+             let textBack = (user?.profile_text_color)! ?? "000000"
+             mainLabel.textColor = UIColor(hexString: textBack)
+             let backColor =  (user?.profile_background_color)! ?? "000000"
+             backgroundColor = UIColor(hexString: backColor)
+             */
+            
+        }
+    }
+    
+    // MARK: - 私有控件
     private lazy var nameLabel = UILabel(ykText: "名字",fontSize: 16, color: UIColor.blackColor())
     private lazy var accountLabel = UILabel(ykText: "@realName",fontSize: 13)
     private lazy var headView = UIImageView(ylImageName: "ic_tweet_attr_summary_default")
     private lazy var timeLabel = UILabel(ykText: "10/8/2015", fontSize: 12, color: UIColor.darkGrayColor(), alignment: .Left)
-    private lazy var mainLabel = UILabel(ykText: "一大串的Twitter发布数据一大串的Twitter发布数据一大串的Twitter发布数据一大串的Twitter发布数据一大串的Twitter发布数据", fontSize: 15, color: UIColor.blackColor(), alignment: .Left)
+    private lazy var mainLabel = UILabel(ykText: "一大串的Twitter发布数据", fontSize: 15, color: UIColor.blackColor(), alignment: .Left)
     private lazy var picViews = PictureView(frame: CGRectZero)
     
     override init(frame: CGRect) {
@@ -33,7 +54,7 @@ extension CellStatusView {
     func setupUI() {
         
         // 测试数据
-        headView.ylSetImageWithUrl("http://pbs.twimg.com/profile_images/473830458556297216/40KlXkaR_normal.jpeg", placeholderName: "ic_tweet_attr_summary_default", size: CGSizeMake(50, 40), corner: 4)
+        // headView.ylSetImageWithUrl("http://pbs.twimg.com/profile_images/473830458556297216/40KlXkaR_normal.jpeg", placeholderName: "ic_tweet_attr_summary_default", size: CGSizeMake(50, 40), corner: 4)
         
         addSubview(headView)
         addSubview(nameLabel)

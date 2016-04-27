@@ -16,6 +16,7 @@
 		0A5FED571CCDE78E00FF7114 /* CellStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5FED561CCDE78E00FF7114 /* CellStatusView.swift */; };
 		0A5FED591CCDEBD000FF7114 /* PictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5FED581CCDEBD000FF7114 /* PictureView.swift */; };
 		0A5FED5D1CCDFDC700FF7114 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5FED5C1CCDFDC700FF7114 /* ViewModel.swift */; };
+		0A6B9E091CCF6EBB00E22065 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B9E081CCF6EBB00E22065 /* UIColor+Extension.swift */; };
 		0AD7F6091CCC995300C36E7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD7F6081CCC995300C36E7E /* AppDelegate.swift */; };
 		0AD7F60B1CCC995300C36E7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD7F60A1CCC995300C36E7E /* ViewController.swift */; };
 		0AD7F60E1CCC995300C36E7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD7F60C1CCC995300C36E7E /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		0A5FED561CCDE78E00FF7114 /* CellStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellStatusView.swift; sourceTree = "<group>"; };
 		0A5FED581CCDEBD000FF7114 /* PictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureView.swift; sourceTree = "<group>"; };
 		0A5FED5C1CCDFDC700FF7114 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		0A6B9E081CCF6EBB00E22065 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		0AD7F6051CCC995200C36E7E /* TwitterDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD7F6081CCC995300C36E7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AD7F60A1CCC995300C36E7E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				0A060F061CCCB52E00A50B29 /* UIImageView+Extension.swift */,
 				0A060F021CCCB17400A50B29 /* UIImage+Extension.swift */,
 				0A5FED511CCDB18900FF7114 /* UIButton+Extension.swift */,
+				0A6B9E081CCF6EBB00E22065 /* UIColor+Extension.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				0A5FED521CCDB18900FF7114 /* UIButton+Extension.swift in Sources */,
 				0AD7F60B1CCC995300C36E7E /* ViewController.swift in Sources */,
 				0A5FED571CCDE78E00FF7114 /* CellStatusView.swift in Sources */,
+				0A6B9E091CCF6EBB00E22065 /* UIColor+Extension.swift in Sources */,
 				0A5FED5D1CCDFDC700FF7114 /* ViewModel.swift in Sources */,
 				0AD7F6091CCC995300C36E7E /* AppDelegate.swift in Sources */,
 			);

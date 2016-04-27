@@ -11,6 +11,13 @@ import UIKit
 private let margin = 50
 class CellActionsView: UIView {
     
+    
+    var user: User? {
+        didSet {
+            retweetLabel.text = "\(user!.listed_count ?? 0)"
+            favoriteLabel.text = "\(user!.favourites_count ?? 0)"
+        }
+    }
     // MARK: - 私有控件
     // 回复
     private lazy var replyButton = UIButton(ykImageName: "icn_social_proof_conversation_default", title: nil)
@@ -25,6 +32,7 @@ class CellActionsView: UIView {
     
 
     override init(frame: CGRect) {
+        
         super.init(frame: frame)
         setupUI()
         buttonAddEvent()
@@ -46,7 +54,8 @@ extension CellActionsView {
     
     @objc func selectedRetweet() {
         UIView.animateWithDuration(0.4) {
-            self.retweetLabel.text = "4"
+            let listCount = (self.user?.listed_count ?? 0) + 1
+            self.retweetLabel.text = "\(listCount)"
             self.retweetImage.image = UIImage(named: "icn_activity_rt_tweet_Selected")
             self.retweetImage.snp_updateConstraints { (make) in
                 make.top.equalTo(self.retweetButton).offset(2)
@@ -55,8 +64,9 @@ extension CellActionsView {
         
     }
     @objc func selectedFavorite() {
-        UIView.animateWithDuration(0.4) {            
-            self.favoriteLabel.text = "16"
+        UIView.animateWithDuration(0.4) {
+            let favoriteCount = (self.user?.favourites_count ?? 0) + 1
+            self.favoriteLabel.text = "\(favoriteCount)"
             self.favoriteImage.image = UIImage(named: "icn_tweet_action_inline_favorite_Selected")
         }
     }
@@ -83,7 +93,7 @@ extension CellActionsView {
         favoriteButton.snp_makeConstraints { (make) in
             make.top.equalTo(retweetButton)
             make.left.equalTo(retweetButton.snp_right).offset(margin)
-            make.bottom.equalTo(self)
+            make.bottom.equalTo(self).offset(12)
         }
         
     }
