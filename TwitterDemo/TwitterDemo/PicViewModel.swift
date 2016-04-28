@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class picViewModel: NSObject {
+class PicViewModel: NSObject {
     
     private func calcSinglePicturesViewSize(picUrl: String) -> CGSize {
         

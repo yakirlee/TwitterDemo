@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YYKit
 
 private let margin = 50
 class CellActionsView: UIView {

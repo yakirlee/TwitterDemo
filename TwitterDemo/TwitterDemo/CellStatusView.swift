@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import YYKit
 
 private let margin = 10.0
 class CellStatusView: UIView {
@@ -62,6 +63,7 @@ class CellStatusView: UIView {
     private lazy var headView     = UIImageView(ylImageName: "ic_tweet_attr_summary_default")
     private lazy var timeLabel    = UILabel(ykText: "10/8/2015", fontSize: 12, color: UIColor.darkGrayColor(), alignment: .Left)
     private lazy var mainLabel    = UILabel(ykText: "一大串的Twitter发布数据", fontSize: 14, color: UIColor.lightGrayColor(), alignment: .Left)
+    
     // 多图
     // private lazy var picViews = PictureView(frame: CGRectZero)
     private lazy var picView = UIImageView(frame: CGRectZero)
@@ -69,6 +71,9 @@ class CellStatusView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
+        
+        
+        
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
